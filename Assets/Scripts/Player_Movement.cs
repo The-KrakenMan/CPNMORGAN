@@ -6,7 +6,7 @@ public class Player_Movement : MonoBehaviour
 {
     public Rigidbody PlayerRB;
     public GameObject GameMan;
-    float MoveSpeed = 2;
+    float MoveSpeed = 5;
     Vector3 Move;
     float RightLeftMove;
 
@@ -30,15 +30,15 @@ public class Player_Movement : MonoBehaviour
         PlayerRB.MovePosition(PlayerRB.position + Move);
 
         RightLeftMove = Input.GetAxis("Horizontal");
-        Move = transform.right * RightLeftMove * 2 * Time.fixedDeltaTime;
+        Move = transform.right * RightLeftMove * 5f * Time.fixedDeltaTime;
         PlayerRB.MovePosition(PlayerRB.position + Move);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (canJump == true)
             {
-                Move = transform.up*5;
-                PlayerRB.MovePosition(PlayerRB.position + Move);
+                
+                PlayerRB.AddForce(Vector3.up*5f);
                 canJump = false;
             }   
         }
@@ -56,7 +56,7 @@ public class Player_Movement : MonoBehaviour
 
 
         //Checks When to Sway
-        StartCoroutine
+        
 
         
         //Checks which direction and for how long

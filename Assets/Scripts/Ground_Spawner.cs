@@ -11,6 +11,7 @@ public class Ground_Spawner : MonoBehaviour
 
     public Vector3 NewLane;
     public GameObject Player;
+    int spawnInc = -456;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,33 +27,27 @@ public class Ground_Spawner : MonoBehaviour
     public void Spawn(GameObject Spawner)
     {
         int randomnum = Random.Range(0, 5);
-        
-        
-        NewLane = Spawner.transform.position;
-        NewLane.x = NewLane.x - 76;
-        NewLane.y += 4;
-        NewLane.z += 3;
 
        switch (randomnum)
         {
             case 0:  
-                    GameObject Ground = Instantiate(Lane, NewLane, Quaternion.identity);
-                     break;
+                 GameObject Ground = Instantiate(Lane, new Vector3(spawnInc,0,0), Quaternion.identity);
+                 break;
             case 1:
-                 GameObject Ground2 = Instantiate(Lane, NewLane, Quaternion.identity);
+                 GameObject Ground2 = Instantiate(Lane, new Vector3(spawnInc,0, 0), Quaternion.identity);
                 break;
             case 2:
-                GameObject ObstacleLane1 = Instantiate(Lane, NewLane, Quaternion.identity);
+                GameObject ObstacleSpawn1 = Instantiate(ObstacleLane1, new Vector3(spawnInc, 0, 0), Quaternion.identity);
                 break;
             case 3:
-                GameObject ObstacleLane2 = Instantiate(Lane, NewLane, Quaternion.identity);
+                GameObject ObstacleSpawn2 = Instantiate(ObstacleLane2, new Vector3(spawnInc, 0, 0), Quaternion.identity);
                 break;
             case 4:
-                GameObject ObstacleLane3 = Instantiate(Lane, NewLane, Quaternion.identity);
+                GameObject ObstacleSpawn3 = Instantiate(ObstacleLane3, new Vector3(spawnInc, 0, 0), Quaternion.identity);
                 break;
         }
 
-        
+        spawnInc -= 76;
 
     }
 }
