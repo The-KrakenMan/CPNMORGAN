@@ -5744,8 +5744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc54c9a1be340fb449be2541ddae303e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lane: {fileID: 0}
-  ObstacleLane1: {fileID: 2210570933235737476, guid: 7974c7fe3055f4d4a90d8d8a3baa9fc1, type: 3}
+  Lane: {fileID: 2210570933235737476, guid: 7974c7fe3055f4d4a90d8d8a3baa9fc1, type: 3}
+  ObstacleLane1: {fileID: 2210570933235737476, guid: c5c07669fe2e21943a8916d17d37eaf1, type: 3}
   ObstacleLane2: {fileID: 5075059878344249450, guid: 1591d078cf3d01c49ba551d4c2efba0f, type: 3}
   ObstacleLane3: {fileID: 429920674594246929, guid: 50356984027930f4d93b6f76016517a2, type: 3}
   NewLane: {x: 0, y: 0, z: 0}

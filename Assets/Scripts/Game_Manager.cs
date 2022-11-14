@@ -10,6 +10,7 @@ public class Game_Manager : MonoBehaviour
     public int GrogCount;
     public int Score;
     public GameObject UIMan;
+    public bool isdead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,11 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score++; 
+        if (isdead == false)
+        {
+            Score++;
+        }
+        
     }
 
     public void GameOver()
@@ -30,6 +35,7 @@ public class Game_Manager : MonoBehaviour
         deathSound.Play();
         UIMan.GetComponent<UI_Manager>().DeathScreenUP(Score);
         failureSound.Play();
+        isdead = true;
     }
 
     public void PickUpCollect()
