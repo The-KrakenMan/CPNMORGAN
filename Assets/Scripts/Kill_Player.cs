@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Kill_Player : MonoBehaviour
 {
-    public AudioSource deathSound;
-    public AudioSource failureSound;
+    
     public bool isDead;
     GameObject GameMan;
     // Start is called before the first frame update
@@ -25,11 +24,9 @@ public class Kill_Player : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
-        {
-            deathSound.Play();
+        {           
             isDead = true;
             GameMan.GetComponent<Game_Manager>().GameOver();
-            failureSound.Play();
         } 
     }
 }
