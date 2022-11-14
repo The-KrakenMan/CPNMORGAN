@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TC&CS.unity
     guid: 0ca1d8a26e909b149ac198f3b4ebcb6a
   - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: faebcef3e82525d4a8dea195885dd167
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
