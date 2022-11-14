@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Game_Manager : MonoBehaviour
 {
-    public AudioSource deathSound;
     public AudioSource failureSound;
     public AudioSource collectSound;
     public int GrogCount;
@@ -13,16 +12,13 @@ public class Game_Manager : MonoBehaviour
     public GameObject UIMan;
     public bool isdead = false;
 
-<<<<<<< HEAD
     
     public Text challenge;
     
-=======
->>>>>>> 609f85d68a9b7a60ff337e17f9e72f4337a7fe6b
     // Start is called before the first frame update
     void Start()
     {
-       
+        UIMan = GameObject.FindGameObjectWithTag("UI_Manager");
        
     }
 
@@ -38,16 +34,10 @@ public class Game_Manager : MonoBehaviour
 
     public void GameOver()
     {
-        
-        deathSound.Play();
         UIMan.GetComponent<UI_Manager>().DeathScreenUP(Score);
-<<<<<<< HEAD
         
         GameObject.FindWithTag("challenge1").SetActive(true);
-        
 
-        
-=======
         failureSound.Play();
         isdead = true;
     }
@@ -55,7 +45,7 @@ public class Game_Manager : MonoBehaviour
     public void PickUpCollect()
     {
         collectSound.Play();
->>>>>>> 609f85d68a9b7a60ff337e17f9e72f4337a7fe6b
+
     }
     
 }

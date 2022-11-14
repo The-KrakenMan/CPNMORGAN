@@ -37,13 +37,10 @@ public class Player_Movement : MonoBehaviour
         {
             if (canJump == true)
             {
-                Debug.Log("Jumping");
                 PlayerRB.AddRelativeForce(Vector3.up*5f, ForceMode.Impulse);
                 canJump = false;
             }   
         }
-
-        
         Drunkify();
 
 
@@ -94,8 +91,7 @@ public class Player_Movement : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-       
-        if ((collision.gameObject.tag == "Ground") || (collision.gameObject.tag == "Obstacle"))
+        if ((collision.gameObject.tag == "Ground")|| (collision.gameObject.tag == "Obstacle"))
         {
             canJump = true;
         }
