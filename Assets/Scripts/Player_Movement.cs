@@ -25,7 +25,7 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float SpeedUp = GameMan.GetComponent<Game_Manager>().Score / 20;
+        float SpeedUp = GameMan.GetComponent<Game_Manager>().Score / 300;
         Move = transform.forward * (MoveSpeed + SpeedUp) * Time.fixedDeltaTime;
         PlayerRB.MovePosition(PlayerRB.position + Move);
 
@@ -37,10 +37,13 @@ public class Player_Movement : MonoBehaviour
         {
             if (canJump == true)
             {
+                Debug.Log("Jumping");
                 PlayerRB.AddRelativeForce(Vector3.up*5f, ForceMode.Impulse);
                 canJump = false;
             }   
         }
+
+        
         Drunkify();
 
 
@@ -91,7 +94,8 @@ public class Player_Movement : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if ((collision.gameObject.tag == "Ground")|| (collision.gameObject.tag == "Obstacle"))
+       
+        if ((collision.gameObject.tag == "Ground") || (collision.gameObject.tag == "Obstacle"))
         {
             canJump = true;
         }

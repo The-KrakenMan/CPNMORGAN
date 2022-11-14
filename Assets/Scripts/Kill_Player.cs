@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Kill_Player : MonoBehaviour
 {
-    public AudioSource deathSound;
-    public AudioSource failureSound;
+    
     public bool isDead;
     GameObject GameMan;
     
@@ -27,14 +26,17 @@ public class Kill_Player : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
-        {
-            deathSound.Play();
+        {           
             isDead = true;
             GameMan.GetComponent<Game_Manager>().GameOver();
+<<<<<<< HEAD
             failureSound.Play();
             
         }
         
         
+=======
+        } 
+>>>>>>> 609f85d68a9b7a60ff337e17f9e72f4337a7fe6b
     }
 }
