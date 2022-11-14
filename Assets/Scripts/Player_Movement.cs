@@ -25,7 +25,7 @@ public class Player_Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float SpeedUp = GameMan.GetComponent<Game_Manager>().Score / 300;
+        float SpeedUp = GameMan.GetComponent<Game_Manager>().Score / 500;
         Move = transform.forward * (MoveSpeed + SpeedUp) * Time.fixedDeltaTime;
         PlayerRB.MovePosition(PlayerRB.position + Move);
 

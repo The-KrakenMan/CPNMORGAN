@@ -11,6 +11,7 @@ public class Game_Manager : MonoBehaviour
     public int GrogCount;
     public int Score;
     public GameObject UIMan;
+    public bool isdead = false;
 
 <<<<<<< HEAD
     
@@ -28,7 +29,11 @@ public class Game_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score++; 
+        if (isdead == false)
+        {
+            Score++;
+        }
+        
     }
 
     public void GameOver()
@@ -44,6 +49,7 @@ public class Game_Manager : MonoBehaviour
         
 =======
         failureSound.Play();
+        isdead = true;
     }
 
     public void PickUpCollect()
