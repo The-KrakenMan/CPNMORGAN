@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Pick_Up : MonoBehaviour
 {
+    public AudioSource collectSound;
     public GameObject UIMan;
     public GameObject GameMan;
     // Start is called before the first frame update
@@ -25,7 +26,9 @@ public class Pick_Up : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            
             PickedUP();
+            collectSound.Play();
             other.GetComponent<Player_Movement>().DrunkMeter++;
         }
     }
@@ -33,6 +36,7 @@ public class Pick_Up : MonoBehaviour
     { 
         GameMan.GetComponent<Game_Manager>().GrogCount++;
         UIMan.GetComponent<UI_Manager>().GrogUp();
-        Destroy(this.gameObject);
+        
+        //Destroy(this.gameObject);
     }
 }
