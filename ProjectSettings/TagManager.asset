@@ -8,6 +8,8 @@ TagManager:
   - Obstacle
   - Game_Manager
   - UI_Manager
+  - challenge1
+  - challenge2
   layers:
   - Default
   - TransparentFX
