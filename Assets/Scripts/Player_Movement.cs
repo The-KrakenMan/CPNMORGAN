@@ -9,17 +9,17 @@ public class Player_Movement : MonoBehaviour
     float MoveSpeed = 5;
     Vector3 Move;
     float RightLeftMove;
-
+    public int DrunkMeter;
     float Timer;
     int RandomSway;
     bool Sway = false;
     bool canJump = true;
+    bool SwayLeft;
 
     // Start is called before the first frame update
     void Start()
     {
-        RandomSway = Random.Range(1, 5);
-        Timer = Time.time + RandomSway;
+        Timer = 0; 
     }
 
     // Update is called once per frame
@@ -30,50 +30,62 @@ public class Player_Movement : MonoBehaviour
         PlayerRB.MovePosition(PlayerRB.position + Move);
 
         RightLeftMove = Input.GetAxis("Horizontal");
-        Move = transform.right * RightLeftMove * 5f * Time.fixedDeltaTime;
+        Move = transform.right * RightLeftMove * (5 + DrunkMeter) * Time.fixedDeltaTime;
         PlayerRB.MovePosition(PlayerRB.position + Move);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (canJump == true)
             {
-                
-                PlayerRB.AddForce(Vector3.up*5f);
+                PlayerRB.AddRelativeForce(Vector3.up*5f, ForceMode.Impulse);
                 canJump = false;
             }   
         }
+        Drunkify();
 
 
 
     }
 
-    private void Drunkify()
+  
+
+    IEnumerator DirectionSwap()
     {
-        int RandomDir = 0;     
-        float SwayTimer = 0;
-        bool SwayLeft = false;
-        bool SwayRight = false;
+        int r = Random.Range(5, 10);
+        yield return new WaitForSecondsRealtime(r);
+        if (SwayLeft == true)
+        {
+            SwayLeft = false;
+        }
+        else
+        {
+            SwayLeft = true;
+        }
 
-
-        //Checks When to Sway
-        
-
-        
+    }
+    public void Drunkify()
+    {
+        Timer -= Time.fixedDeltaTime;
+        if (Timer<= 0)
+        {     
+            StartCoroutine(DirectionSwap());
+            Timer = Random.Range(3, 5);
+        }
         //Checks which direction and for how long
         
+        if (SwayLeft == true)
+        {   
+            PlayerRB.AddRelativeForce(Vector3.left*DrunkMeter);
+            Debug.Log("Swaying Left");
+        }
+        else
+        {
+            PlayerRB.AddRelativeForce(Vector3.right*DrunkMeter);
+            Debug.Log("Swaying Right");
+        }
+       
 
-           while (SwayLeft == true)
-            {
-                PlayerRB.AddRelativeForce(Vector3.left);
-            }
 
-            while (SwayRight == true)
-            {
-                PlayerRB.AddRelativeForce(Vector3.right);
-            }
-
-
-      
 
     }
 

@@ -26,6 +26,7 @@ public class Pick_Up : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             PickedUP();
+            other.GetComponent<Player_Movement>().DrunkMeter++;
         }
     }
     public void PickedUP()
